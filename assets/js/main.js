@@ -9,22 +9,31 @@ Che ci sia un array da qualche parte?
 Se dobbiamo confrontare qualcosa che "cosa" ci serve? */
 
 //chiedi all'utente la sua email
-const userMail = prompt('La tua email');
+//const userMail = prompt('La tua email');
 //contralla che sia nella lista di chi puo' accedere
 const listMail = ['nome.cognome@email.com', 'dan97-oddo@live.it', 'prova'];
+const formElement = document.querySelector("form");
+const mailElement = document.querySelector("input");
+const divElement = document.createElement("div");
+
+formElement.insertAdjacentElement('afterend', divElement);
 
 
-//stampa un messaggio appropriato sull’esito del controllo.
-for (let i = 0; i < listMail.length; i++) {
-    if (listMail[i] === userMail) {
-      alert("Accesso Consentito");
-      console.log(listMail[i]);
-
-    } else (listMail[i] != userMail); {
-      alert("Accesso Negato!");
-      console.log(listMail[i]);
+formElement.addEventListener("submit", function(e){
+    e.preventDefault();
+    let password = 0;
+  
+    for (let i = 0; i < listMail.length; i++) {
+      if (listMail[i] === mailElement.value) {
+        divElement.innerHTML = `${mailElement.value}: Accesso Consentito`;
+        password = 1;
+      }
     }
-  }
+  
+    if (password === 0 || listMail[i] != mailElement.value) {
+      divElement.innerHTML = `${mailElement.value}: Accesso Negato`;
+    } 
+})
 
 
 
