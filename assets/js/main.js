@@ -37,6 +37,37 @@ formElement.addEventListener("submit", function(e){
 
 
 
+//Es Dadi
+/* Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. Stabilire il vincitore, in base a chi fa il punteggio più alto.
+Prima di partire a scrivere codice poniamoci qualche domanda:
+Che ci sia un array da qualche parte?
+Se dobbiamo confrontare qualcosa che "cosa" ci serve? */ 
+
+const formDadi = document.getElementById("form_dadi")
+const divEl = document.createElement("div")
+formDadi.insertAdjacentElement('afterend', divEl);
+
+
+//Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. 
+formDadi.addEventListener("submit", function(e){
+    e.preventDefault();
+    const pc = Math.floor(Math.random() * 6) + 1;
+    const user = Math.floor(Math.random() * 6) + 1;
+
+    divEl.innerHTML = `Punteggio Giocatore: ${user} <br>
+    Punteggio Computer: ${pc}`
+
+    //Stabilire il vincitore, in base a chi fa il punteggio più alto.
+    if(pc > user){
+        divEl.innerHTML = '  VINCE IL COMPUTER';
+   } else if(user > pc){
+    divEl.innerHTML += '  VINCE IL GIOCATORE';
+   } else {
+    divEl.innerHTML += '  PAREGGIO';
+   }
+});
+
+
 
 
 
