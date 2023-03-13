@@ -21,15 +21,15 @@ formElement.insertAdjacentElement('afterend', divElement);
 
 formElement.addEventListener("submit", function(e){
     e.preventDefault();
-    let permission = 0;
+    let permission = false;
   
     for (let i = 0; i < listMail.length; i++) {
       if (listMail[i] === mailElement.value) {
-        permission = 1;
+        permission = true;
       }
     }
   
-    if(permission === 1) {
+    if(permission === true) {
         divElement.innerHTML = `${mailElement.value}: Accesso Consentito`;
     } else {
         divElement.innerHTML = `${mailElement.value}: Accesso Negato`;
